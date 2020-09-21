@@ -35,9 +35,7 @@ If we highlight the `Card1` Component we will see something called `props` to th
 
 <img src="https://i.imgur.com/qzpnB0y.png" /><br>
 
-Since we haven't yet passed any data to these Components there is nothing to show. But once we do start passing data React Dev Tools will display something more like this: 
-
-<img src="" alt="props data"/>
+Since we haven't yet passed any data to these Components there is nothing to show.
 
 <hr>
 
