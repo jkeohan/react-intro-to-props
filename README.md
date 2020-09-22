@@ -419,7 +419,7 @@ Take a moment to update the `CardImage` and `Button` Component to make use of Ob
 
 The instructor will perform a walk through of organizing the Components into a folder structure. 
 
-[Final Solution]() - (link provided after full codealong)
+[Final Solution](https://codesandbox.io/s/seir-831-bootstrap-props-starter-zeuwb?file=/src/App.js:72-76) - (link provided after full codealong)
 <!-- [Final Solution](https://codesandbox.io/s/rctrr-8-8-20-bootstrap-solution-uyvmg?file=/src/App.js) -->
 
 ### Lab Time
