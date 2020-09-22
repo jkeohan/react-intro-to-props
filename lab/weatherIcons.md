@@ -33,8 +33,7 @@ Perform the following to complete the lab:
 * App will then render those `WeatherIcons` Components
 
 **Bonus**
-* Try creating the following additional Components:
-
+- Try creating the following additional Components:
  - WeatherIcon - contains only the img 
  - WeatherData - contains both the `conditions` and `time`
 
