@@ -17,8 +17,9 @@ Perform the following to complete the lab:
 
 **Creating The Data**
 * Create a new file called `weatherData.js` that contain an array of five objects with the following properties: `img`,`conditions`,`time`.
-* Populate the objects based on the values from those elements in the HTML
-* Export the file and import into `App.js`
+* Populate the objects based on the values from those same elements in the HTML
+* Import into `App.js`
+* Console.log the file to confirm that it has been imported
 
 **Creating The `WeatherIcons` Component**
 * Look over the HTML structure used to create the weather icons
