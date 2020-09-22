@@ -43,7 +43,7 @@ Once we have implemented all the steps in today's lecture on `props` React Dev T
 
 <img src="https://i.imgur.com/eZPBlyy.png" />
 
-Here is a [live](https://uyvmg.csb.app/) version of today's solution. 
+Here is a [live](https://kv1bq.csb.app/) version of today's solution. 
 
 <hr>
 
