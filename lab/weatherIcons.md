@@ -29,7 +29,7 @@ Perform the following to complete the lab:
 **Rendering The `WeatherIcons` Component**
 * Import the `WeatherIcons` Component into `App`
 * Loop over the weatherData array data and create a `WeatherIcons` Component for each element passed
-* In the loop pass the element the props it needs for img`, `conditions` and `time`. 
+* In the loop pass the element the props it needs for `img`, `conditions` and `time`. 
 * App will then render those `WeatherIcons` Components
 
 **Bonus**
