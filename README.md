@@ -15,11 +15,11 @@ Creator:  Joe Keohan<br>
 
 ## Framing
 
-Having worked with functions we know that they are meant to be reusable.  Part of the reusability is the being able to accept arguments, perform some action and return something.  
+Having worked with functions we know that they are meant to be reusable.  Part of the reusability is being able to accept arguments, perform some action and return something.  `Standard Input` > `Standard Output`
 
-Now consider that our application will have data and parts of the data will need to rendered in the UI.  Doing so means passing the Components the data they need and then performing whatever action is needed to render all or parts of the data in the UI. 
+Now consider that our application contains data and will be comprised of many Components, some of which will need to be passed portions of the data which they are responsible to render.  
 
-The data we pass to Components are called: `props`.
+The data we pass form a parent > child Component are called: `props`.  Make note that it is the parent that passes props to a child.  React data flow is `Unidirectional` and can only be passed down, and never from from `sibling` to `sibling`. 
 
 ### Props
 
@@ -27,9 +27,9 @@ Every Component has `props` and they are how we pass data from a parent to a chi
 
 <hr>
 
-#### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 2min
+#### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 3min
 
-Let's revisit `React Developer Tools` and take a look at a few Components and see if anything `props` related pops out. 
+Let's revisit our previous [Bootstrap Cards](https://codesandbox.io/s/seir-831-bootstrap-solution-r8p9i?file=/src/App.js) in  `React Developer Tools` see if anything `props` related pops out. 
 
 If we highlight the `Card1` Component we will see something called `props` to the right. 
 
@@ -37,24 +37,37 @@ If we highlight the `Card1` Component we will see something called `props` to th
 
 Since we haven't yet passed any data to these Components there is nothing to show.
 
+**End Goal**
+
+Once we have implemented all the steps in today's lecture on `props` React Dev Tools will look more like:
+
+<img src="https://i.imgur.com/eZPBlyy.png" />
+
+Here is a [live](https://uyvmg.csb.app/) version of today's solution. 
+
 <hr>
+
+### Prop Rules
 
 :oncoming_police_car: Props are how we pass data from one Component to another and adhere to the following rules:
 
 - Data is unidirectional in React passed down from a `parent` > `child` Component
 - Props are immutable which means you can't reassign them within the receiving Component
 - All Props passed to a child are organized into a single object in the child Component
+- Any Components created within a .map() must be assigned a unique key.
 
 
 ### Passing Props
 
-Say for instance we wanted to render the name of the place that the image represents in our cards example. We could go directly to `CardBody` and do the following: 
+Say for instance we wanted to render the name  that the image represents in our cards example. We could go directly to `CardBody` and do the following: 
 
 ```html
 <h5 class="card-title">Santorini</h5>
 ```
 
-But this isn't actually passing props but more so just adding the value manually. So let's add a `prop` to CardBody and pass it the value of `Santorini`.
+This is a fairly manual process wouldn't be efficient if we had 100 or 1000 cards to render. 
+
+So let's add a `prop` to CardBody and pass it the value of `Santorini`.
 
 A `prop` is written in a `name=value` format like the other html attributes your used to writing such as: 
 
@@ -71,7 +84,7 @@ Since the `Card1` component is the parent that renders  `CardBody` than it must 
 
 :oncoming_police_car: - Data is unidirectional in React passed down from a `parent` > `child` Component
 
-Let's add the following prop.
+Let's assign CardBody the following `prop`.
 
 ```js
 <CardBody title="Santorini"/>
@@ -95,7 +108,7 @@ In DevTools you should see the following in the console.
 
 <img src="https://i.imgur.com/HlrtO2T.png" width=300/>
 
-We can see here that `props` is an object and that `title` is a key.  This will be the same pattern when we start passing in multiple props.  Each one will be assigned a key:value pair. 
+We can see here that `props` is an object and that `title` is a key.  This will be the same pattern for when we start passing in multiple props. Each prop passed will be assigned a key:value pair. 
 
 <hr>
 
@@ -115,18 +128,30 @@ Refresh the page and you should see the following:
 
 <img src="https://i.imgur.com/Nmio71o.png" width=300/>
 
-So it looks like props was not changed and so we have confirmed that once a Component has been passed props that any attempt to change those props directly will have no effect. 
+So it looks like props was not updated to reflect the edit. This is an example of one of the rules of props:
 
 :oncoming_police_car: - Props are immutable which means you can't reassign them within the receiving Component
+
+So any attempt to change those props directly within the Component will have no effect. 
 
 <hr>
 
 
 #### Using Props
 
-Now that we have confirmed we are being passed the value let's use it to replace the hard coded value. 
+Now that we have confirmed we are being passed the value we need for title let's use it to replace the hard coded value. 
 
-Another JSX rule that we need remember is that any JavaScript code that needs to be executed must be enclosed in opening/closing curls braces `{}`
+Let's try and use the prop that was passed. 
+
+<img src="https://i.imgur.com/XhKpkoR.png" width=300/>
+
+That didn't see to work out as planned.  It seems it outputs `props.title` and not the value
+
+ <h5 className="card-title">props.title</h5>
+
+It seems we forgot about one of the rules of JSX:
+
+:oncoming_police_car:  Any JavaScript code that needs to be executed in JSX must be enclosed in opening/closing curls braces `{}`
 
 ```js
 <h5 className="card-title">{props.title}</h5>
@@ -138,7 +163,7 @@ Another JSX rule that we need remember is that any JavaScript code that needs to
 
 Confirm in React Dev Tools that CardBody is now being passed a prop
 
-<img src="" alt="image of props being passed"/>
+<img src="" alt="image of props being passed"/><br>
 
 :thumbsup: Click on the thumbs up when your done.
 
@@ -148,9 +173,9 @@ Confirm in React Dev Tools that CardBody is now being passed a prop
 
 We could do the same for all the additional values we wish to pass but as you can imagine if we had 10, 20, 100+ cards this manual method becomes completely inefficient. 
 
-Also we should expect that the data we will be using to render the cards will be imported either via a file or returned from an API call. 
+Also it is more likely that the data we will be using to render the cards will be imported either via a file or returned from an API call.  
 
-Either way we should expect the if we will need to create multiple cards that the data will be stored as an array of objects:  `[{}, {}]`
+Either way we should expect that if we will need to create multiple cards that the data will be stored as an array of objects:  `[{}, {}]`
 
 
 <hr>
@@ -159,7 +184,7 @@ Either way we should expect the if we will need to create multiple cards that th
 
 Let's use some real data and replace the generic placeholder text.
 
-- Create a new file in `src` called `data.js`
+- Create a new file in `src` called `cardData.js`
 - paste the following code into the file
 
 ```js
@@ -184,7 +209,7 @@ export default [
 
 ```js
 // IMPORT DATA
-import cardsArr from './data'
+import cardsArr from './cardsData'
 console.log('this is cardsArr:', cardsArr)
 ```
 
@@ -195,9 +220,9 @@ console.log('this is cardsArr:', cardsArr)
 
 #### Creating Multiple Cards
 
-Now that we have the data we can now loop over it and render as many `Card Components` as we need and pass the data down to from parent > child as many levels deep as needed. 
+With the data in hand we can now loop over the array and render as many `Card Components` as we need and pass them the props needed for each card.  
 
-Inside of the `App` Component we will now loop over the `cardsArr` array and create multiple Cards in one shot. 
+Inside of the `App` Component we will loop over the `cardsArr` array and create multiple Cards in one shot. 
 
 Each prop is defined on it's own and passed it's corresponding value.
 
@@ -222,11 +247,15 @@ Now take a look in DevTools and you should see the following:
 
 <img src="https://i.imgur.com/gx42Kme.png" />
 
-One thing to note here is that the object contains a key called `key`.  
+Each object appears to contain much more info then we passed and each one has a `typeof` set to `Symbol(react.element)`.  `Symbols` were a new data type introduced in ES6 and are meant to be unique, meaning there will not be `Symbol` in this array with the same exact info.  
 
-It is currently set to `null` however React will warn us later when we render the Cards as it needs to assign a unique key to each Component rendered via a loop. 
+Something will be needed to distinguish it as unique. React does so by assigning a key called `key`.  
 
-Before we render the Cards we first need to update `Card1` to pass the data down to it's children.
+It is currently set to `null` and React will warn in just a bit when we render the Cards based on the following rule:
+
+:oncoming_police_car:  Any Components created within a .map() must be assigned a unique key.
+
+Before we render the Cards we first need to update `Card1` to pass the data down the props it's received to it's corresponding children.
 
 ```js
 const Card1 = (props) => {
@@ -276,7 +305,11 @@ Keep in the mind the following:
 
 <hr>
 
-Now it's time to see all that code preparation in action. In App comment out `<Card1 />` and `<Card2 />` and add `{cards}`
+#### Reusable Components
+
+Now it's time to see all that code refactoring done to `Card1` in action. 
+
+In App comment out `<Card1 />` and `<Card2 />`.  We will now replace those values with the data returned via the .map() and stored in `cards`.
 
 ```js
 <section className="cards">
@@ -292,7 +325,7 @@ As you may recall it was mentioned earlier that the elements would render fine h
 
 <img src="https://i.imgur.com/Ofg12N1.png" >
 
-This can easily be fixed by assigning a `key prop` to each element with a unique value.  Since each element in an array is assigned a unique index value we will opt to use that. 
+This can easily be fixed by assigning a `key` prop to each element with a unique value.  Since each element in an array is assigned a unique index value we will opt to use that. 
 
 ```js
  const cards = cardsArr.map((ele, index) => {
@@ -310,19 +343,19 @@ This can easily be fixed by assigning a `key prop` to each element with a unique
 
 Since the goal of a Component is to be reusable we could now use Card1 as our base template for rendering as many cards as we need. 
 
-Let's rename the `Card1.js` to `Card.js` and update both the import statement and the Component name in the map.  
+It makes more sense to rename `Card1.js` to `Card.js` and update both the import statement and the Component name in the map.  
 
-Below includes the updates.
+Below includes those 2 updates.
 
 <img src="https://i.imgur.com/SLtYu9d.png">
 <br>
 <br>
 
-And there you have it.  Multiple Components rendered with each being passed multiple props.  
+And there you have it.  Multiple Components rendered via a loop with each being the props they need to render appropriately.  
 
 ### Final React Architecture
 
-As we have made some design changes let's take a look at our final React Architecture design that takes into account all Components used in this app.  
+As we have made some design changes let's take a look at our final React Architecture design that takes into account all Components and the props being passed. 
 
 <img src="https://i.imgur.com/WlfxS7X.png" width=600/>
 
@@ -335,7 +368,9 @@ The architecture represents all the Components and the props that are being pass
 Since passing props is a requirement in React there are a few shortcuts we can make when passing them.  
 
 #### Using The ...spread Operator
-The first is that we can use the `...spread` operator when passing them down.  In `Card.js` let's replace all those hard coded props with the `...spread` operator. 
+The first is that we can use the `...spread` operator to pass many key:value's down instead of writing them out one at a time. 
+
+In `Card.js` let's replace all those hard coded props, except `key`,  with the `...spread` operator. 
 
 ```js
  const cards = cardsArr.map((ele, index) => {
@@ -350,7 +385,10 @@ The first is that we can use the `...spread` operator when passing them down.  I
 
 #### Using Object Destructuring 
 
-The other shorthand we can use is to update the Child component to create variables based on the key:value pairs in the `props` object. 
+The other shorthand we can use is to update the Child components to create variables based on the key:value pairs that are in the `props` object. 
+
+
+**CardBody**
 
 Let's update `CardBody` to make use of Object Destructuring.  Here we use an object as parameter that includes all the prop key names that are being passed down. 
 
@@ -371,7 +409,7 @@ const CardBody = ({title, text, url}) => {
 
 #### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 2min
 
-Take a moment to update the `CardImage` Component to make use of Object Destructuring. 
+Take a moment to update the `CardImage` and `Button` Component to make use of Object Destructuring. 
 
 :thumbsup: Click on the thumbs up when your done.
 
