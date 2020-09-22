@@ -16,10 +16,7 @@ In `src/index.html` you will find five weather elements that generate the output
 Perform the following to complete the lab:
 
 **Creating The Data**
-* Create a new file called `weatherData.js` that contain an array of five objects with the following properties: 
- - `img`
- - `conditions`
- - `time`.
+* Create a new file called `weatherData.js` that contain an array of five objects with the following properties: `img`,`conditions`,`time`.
 * Populate the objects based on the values from those elements in the HTML
 * Export the file and import into `App.js`
 
