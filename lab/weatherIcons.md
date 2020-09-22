@@ -34,8 +34,8 @@ Perform the following to complete the lab:
 
 **Bonus**
 - Try creating the following additional Components:
- - WeatherIcon - contains only the img 
- - WeatherData - contains both the `conditions` and `time`
+  - WeatherIcon - contains only the img 
+  - WeatherData - contains both the `conditions` and `time`
 
 **Super Bonus**
 * Try working on the [The Knot](https://codesandbox.io/s/theknot-starter-ye150) exercise
