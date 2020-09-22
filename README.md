@@ -415,6 +415,10 @@ Take a moment to update the `CardImage` and `Button` Component to make use of Ob
 
 <hr>
 
+### Bonus - A Better Folder Structure 
+
+The instructor will perform a walk through of organizing the Components into a folder structure. 
+
 [Final Solution]() - (link provided after full codealong)
 <!-- [Final Solution](https://codesandbox.io/s/rctrr-8-8-20-bootstrap-solution-uyvmg?file=/src/App.js) -->
 
