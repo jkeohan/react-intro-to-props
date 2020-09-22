@@ -21,16 +21,20 @@ Perform the following to complete the lab:
 * Import into `App.js`
 * Console.log the file to confirm that it has been imported
 
-**Creating The `WeatherIcons` Component**
+**Creating The `WeatherForecast` Component**
 * Look over the HTML structure used to create the weather icons
-* Create a `WeatherIcons`  Component based on the HTML structure 
+* Create a `WeatherForecast`  Component based on the HTML structure 
 * Make sure to set the Component up to accept props and update the JSX to work with those props
 
-**Rendering The `WeatherIcons` Component**
-* Import the `WeatherIcons` Component into `App`
-* Loop over the weatherData array data and create a `WeatherIcons` Component for each element passed
+**Rendering The `WeatherForecast` Component**
+* Import the `WeatherForecast` Component into `App`
+* Loop over the weatherData array data and create a `WeatherForecast` Component for each element passed
 * In the loop pass the element the props it needs for `img`, `conditions` and `time`. 
-* App will then render those `WeatherIcons` Components
+* App will then render those `WeatherForecast` Components
+
+Once you have completed the above steps your React Hierarchy should look like the following:
+
+<img src="https://i.imgur.com/7YlFsU7.png" width=500/>
 
 **Bonus**
 - Try creating the following additional Components:
