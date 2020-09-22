@@ -5,11 +5,19 @@ Creator:  Joe Keohan<br>
 
 ---
 
-## Recreating WeatherIcons in React
+## Recreating WeatherForecast in React
 
 In this exercise, you will practice creating reusable React Components.
 
 Use the following [CodeSandbox Starter](https://codesandbox.io/s/adoring-goodall-mhive) code
+
+#### React Hierarchy 
+
+Here is the React Hierarchy you will be implementing:
+
+<img src="https://i.imgur.com/7YlFsU7.png" width=500/><br>
+
+#### Getting Started
 
 In `src/index.html` you will find five weather elements that generate the output you are seeing now.
 
@@ -32,14 +40,15 @@ Perform the following to complete the lab:
 * In the loop pass the element the props it needs for `img`, `conditions` and `time`. 
 * App will then render those `WeatherForecast` Components
 
-Once you have completed the above steps your React Hierarchy should look like the following:
-
-<img src="https://i.imgur.com/7YlFsU7.png" width=500/>
 
 **Bonus**
 - Try creating the following additional Components:
   - WeatherIcon - contains only the img 
   - WeatherData - contains both the `conditions` and `time`
+
+  If successful your React Hierarchy will now look like the following:
+
+  <img src="https://i.imgur.com/ffkXBPi.png" width=600/>
 
 **Super Bonus**
 * Try working on the [The Knot](https://codesandbox.io/s/theknot-starter-ye150) exercise
