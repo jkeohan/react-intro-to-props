@@ -25,8 +25,6 @@ The data we pass form a parent > child Component are called: `props`.  Make note
 
 Every Component has `props` and they are how we pass data from a parent to a child Component. 
 
-<img src="https://i.imgur.com/O0OwmJx.png" />
-
 <hr>
 
 #### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 3min
