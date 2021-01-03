@@ -15,11 +15,15 @@ Creator:  Joe Keohan<br>
 
 ## Framing
 
-Having worked with functions we know that they are meant to be reusable.  Part of the reusability is being able to accept arguments, perform some action and return something.  `Standard Input` > `Standard Output`
+Having worked with functions we know that they are meant to be reusable.  Part of the reusability is in accepting arguments, performing an action and returning a value.  
 
-Now consider that our application contains data and will be comprised of many Components, some of which will need to be passed portions of the data which they are responsible to render.  
+`Standard Input` produces `Standard Output`
 
-The data we pass form a parent > child Component are called: `props`.  Make note that it is the parent that passes props to a child.  React data flow is `Unidirectional` and can only be passed down, and never from from `sibling` to `sibling`. 
+Now consider that our application contains many Components, some of which may require data points in order to render the UI.  
+
+The data we pass form a `parent > child Component` are called: `props`.  Make note that it is the parent that passes props to a child.  
+
+React data flow is `Unidirectional` and can only be passed down, and never from from `sibling` to `sibling`. 
 
 ### Props
 
@@ -49,10 +53,12 @@ Here is a [live](https://kv1bq.csb.app/) version of today's solution.
 
 ### Prop Rules
 
+Let's extend the rule we defined previously for Components to now include `props`.
+
 :oncoming_police_car: Props are how we pass data from one Component to another and adhere to the following rules:
 
 - Data is unidirectional in React passed down from a `parent` > `child` Component
-- Props are immutable which means you can't reassign them within the receiving Component
+- Props are immutable and cannot be reassgned a new value within the child Component
 - All Props passed to a child are organized into a single object in the child Component
 - Any Components created within a .map() must be assigned a unique key.
 
@@ -65,7 +71,7 @@ Say for instance we wanted to render the name  that the image represents in our 
 <h5 class="card-title">Santorini</h5>
 ```
 
-This is a fairly manual process wouldn't be efficient if we had 100 or 1000 cards to render. 
+This is a fairly manual process and wouldn't be efficient if we had 100 or 1000 cards to render. 
 
 So let's add a `prop` to CardBody and pass it the value of `Santorini`.
 
@@ -73,9 +79,9 @@ A `prop` is written in a `name=value` format like the other html attributes your
 
 ```html
 <!-- The src property of a image tag -->
-<img src="" />
+<img src="someurl" />
 <!-- The class property assigned to any element -->
-<div class="blue"></div>
+<div class="container"></div>
 <!-- The href property assigned to an anchor tag -->
 <a href="someurl"></a>
 ```
@@ -162,8 +168,6 @@ It seems we forgot about one of the rules of JSX:
 #### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 1min
 
 Confirm in React Dev Tools that CardBody is now being passed a prop
-
-<img src="" alt="image of props being passed"/><br>
 
 :thumbsup: Click on the thumbs up when your done.
 
@@ -415,11 +419,16 @@ Take a moment to update the `CardImage` and `Button` Component to make use of Ob
 
 <hr>
 
+### Final Solution
+
+Here is the [Final Solution](https://codesandbox.io/s/seir-831-bootstrap-props-starter-zeuwb?file=/src/App.js:72-76) 
+
 ### Bonus - A Better Folder Structure 
 
 The instructor will perform a walk through of organizing the Components into a folder structure. 
 
-[Final Solution](https://codesandbox.io/s/seir-831-bootstrap-props-starter-zeuwb?file=/src/App.js:72-76) - (link provided after full codealong)
+
+
 <!-- [Final Solution](https://codesandbox.io/s/rctrr-8-8-20-bootstrap-solution-uyvmg?file=/src/App.js) -->
 
 ### Lab Time
