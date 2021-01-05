@@ -27,13 +27,16 @@ React data flow is `unidirectional` and can only be passed down, and never direc
 
 ### Props
 
-Every Component has `props` and they are how we pass data from a parent to a child Component. 
+Every Component has `props` and that is how data is passed from a parent to a child Component. 
 
 <hr>
 
 #### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 3min
 
-Let's revisit our previous [Bootstrap Cards](https://codesandbox.io/s/seir-831-bootstrap-solution-r8p9i?file=/src/App.js) in  `React Developer Tools` see if anything `props` related pops out. 
+Let's revisit our previous [Bootstrap Cards](https://codesandbox.io/s/bootstrap-solution-seir-1207-2v48i) in  `React Developer Tools` see if anything `props` related pops out. 
+
+<!-- https://codesandbox.io/s/bootstrap-solution-nero2?file=/src/App.js -->
+<!-- https://codesandbox.io/s/seir-831-bootstrap-solution-r8p9i?file=/src/App.js -->
 
 If we highlight the `Card1` Component we will see something called `props` to the right. 
 
@@ -53,7 +56,7 @@ Here is a [live](https://kv1bq.csb.app/) version of today's solution.
 
 ### Prop Rules
 
-Let's extend the rule we defined previously for Components to now include `props`.
+Let's extend the rules we defined previously for creating Components and working with JSX to now include `props`.
 
 :oncoming_police_car: Props are how we pass data from one Component to another and adhere to the following rules:
 
