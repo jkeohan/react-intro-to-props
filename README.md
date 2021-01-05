@@ -7,6 +7,7 @@ Creator:  Joe Keohan<br>
 
 # Passing Props
 
+
 ## Learning Objectives
 
 *   Create and pass props to Components
@@ -34,6 +35,10 @@ Every Component has `props` and that is how data is passed from a parent to a ch
 #### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 3min
 
 Let's revisit our previous [Bootstrap Cards](https://codesandbox.io/s/bootstrap-solution-seir-1207-2v48i) in  `React Developer Tools` see if anything `props` related pops out. 
+
+Here is the current [React Architecture](https://docs.google.com/drawings/d/15yoSmIcYlYCXaFykSANPciN-gs7ykbOTFrTu1VZIIb4/edit?usp=sharing) as it relates to Card1.
+
+ <img src="https://i.imgur.com/jnXAT84.png" width=300/>
 
 <!-- https://codesandbox.io/s/bootstrap-solution-nero2?file=/src/App.js -->
 <!-- https://codesandbox.io/s/seir-831-bootstrap-solution-r8p9i?file=/src/App.js -->
@@ -70,7 +75,7 @@ This Rule isn't regarding props but something we will need to keep in mind going
 
 ### Passing Props
 
-Say for instance we wanted to render the name  that the image represents in our cards example. We could go directly to `CardBody` and do the following: 
+Say for instance we wanted to render the names that the images represents in our cards example. We could go directly to `CardBody` and do the following: 
 
 ```html
 <h5 class="card-title">Santorini</h5>
@@ -132,7 +137,7 @@ Let's take a moment to edit our previous `Bootstrap Cards CodeSandbox` and try t
 console.log('current props.title', props.title);
 // ATTEMPT TO REASSIGN PROPS A NEW VALUE
 props.title = 'Mykonos';
-console.log('props.title', props.title);
+console.log('new props.title', props.title);
 ```
 
 Refresh the page and you should see the following:
@@ -141,7 +146,7 @@ Refresh the page and you should see the following:
 
 So it looks like props was not updated to reflect the edit. This is an example of one of the rules of props:
 
-:oncoming_police_car: - Props are immutable which means you can't reassign them within the receiving Component
+:oncoming_police_car: - Props are immutable which means you can't reassign them within the receiving child Component
 
 So any attempt to change those props directly within the Component will have no effect. 
 
@@ -150,7 +155,7 @@ So any attempt to change those props directly within the Component will have no 
 
 #### Using Props
 
-Now that we have confirmed we are being passed the value we need for title let's use it to replace the hard coded value. 
+Now that we have confirmed we are being passed the value we need for the title let's use it to replace the hard coded value. 
 
 Let's try and use the prop that was passed. 
 
@@ -214,7 +219,7 @@ export default [
 
 ```
 
-- Import the data into `App.js` as `cardsArr` and add a console.log to confirm it was imported. 
+- Import the data into `App.js` as `cardsArr` and add a `console.log` to confirm it was imported. 
 
 ```js
 // IMPORT DATA
@@ -260,9 +265,9 @@ Each object appears to contain much more info then we passed and each one has a 
 
 Something will be needed to distinguish it as unique. React does so by assigning a key called `key`.  
 
-It is currently set to `null` and React will warn in just a bit when we render the Cards based on the following rule:
+It is currently set to `null` and React will warn us when we render the Cards based on the following rule:
 
-:oncoming_police_car:  Any Components created within a .map() must be assigned a unique key.
+:oncoming_police_car:  Any Components created within an Array.map() must be assigned a unique key.
 
 Before we render the Cards we first need to update `Card1` to pass the data down the props it's received to it's corresponding children.
 
@@ -384,7 +389,7 @@ In `Card.js` let's replace all those hard coded props, except `key`,  with the `
 ```js
  const cards = cardsArr.map((ele, index) => {
     return (
-      <Card1 
+      <Card 
         {...ele}
         key={index}
      />

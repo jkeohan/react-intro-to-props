@@ -52,3 +52,4 @@ Perform the following to complete the lab:
 
 **Super Bonus**
 * Try working on the [The Knot](https://codesandbox.io/s/theknot-starter-ye150) exercise
+* Here is a [working solution](https://hc7wn.csb.app/) to help give you a head start.
