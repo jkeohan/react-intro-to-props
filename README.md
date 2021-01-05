@@ -58,7 +58,7 @@ Here is a [live](https://kv1bq.csb.app/) version of today's solution.
 
 Let's extend the rules we defined previously for creating Components and working with JSX to now include `props`.
 
-:oncoming_police_car: Props are how we pass data from one Component to another and adhere to the following rules:
+:oncoming_police_car:  Props adhere to the following rules:
 
 - Data is unidirectional in React passed down from a `parent` > `child` Component
 - Props are immutable and cannot be reassgned a new value within the child Component
