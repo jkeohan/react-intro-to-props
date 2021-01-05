@@ -21,9 +21,9 @@ Having worked with functions we know that they are meant to be reusable.  Part o
 
 Now consider that our application contains many Components, some of which may require data points in order to render the UI.  
 
-The data we pass from a `parent > child Component` are called: `props`.  Make note that it is the parent that passes props to a child.  
+The data we pass from a `parent > child Component` are called: `props`.  Make note that it is the parent that passes props to a child.
 
-React data flow is `Unidirectional` and can only be passed down, and never from from `sibling` to `sibling`. 
+React data flow is `unidirectional` and can only be passed down, and never directly from `child` to `parent` or `sibling` to `sibling`. 
 
 ### Props
 
