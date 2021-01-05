@@ -61,9 +61,11 @@ Let's extend the rules we defined previously for creating Components and working
 :oncoming_police_car:  Props adhere to the following rules:
 
 - Data is unidirectional passed down from a `parent` > `child` 
-- Props are `immutable` and cannot be reassigned a new value within the receiving child Component
 - All Props passed to a child are organized into a single object in the child Component
-- Any Components created within a .map() must be assigned a unique key.
+- Props are `immutable` and cannot be reassigned a new value within the receiving child Component
+
+This Rule isn't regarding props but something we will need to keep in mind going forward: 
+- Any Components created using Array.map() must be assigned a key prop with a unique value.
 
 
 ### Passing Props
